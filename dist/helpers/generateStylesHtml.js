@@ -8,7 +8,7 @@ export const generateStylesHtml = (backgroundOpacity) => {
           border-radius: 10px;
       }
       .screensaver-background {
-          z-index: 2147483647; // maximum z-index to ensure screensaver is always on top
+          z-index: 2147483647; /* max */
           position: fixed; 
           left: 0; 
           top: 0; 

@@ -10,6 +10,7 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
           border-radius: 10px;
       }
       .screensaver-background {
+          pointer-events: none;
           z-index: 2147483647; /* max */
           position: fixed; 
           left: 0; 
