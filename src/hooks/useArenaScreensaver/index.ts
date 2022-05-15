@@ -1,4 +1,4 @@
-import { useIdleTimer } from "react-idle-timer";
+import { useIdleTimer, IIdleTimer } from "react-idle-timer";
 import { useRef, useCallback } from "react";
 import { Image } from "../../types";
 import {
@@ -16,7 +16,7 @@ export const useArenaScreensaver = ({
   arenaSlug: string;
   timeout?: number;
   timeBetween?: number;
-}) => {
+}): IIdleTimer => {
   if (!arenaSlug) {
     throw new Error("arenaSlug is required");
   }
