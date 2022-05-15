@@ -1,4 +1,4 @@
-# useArenaScreesaver 🌐
+# useArenaScreensaver 🌐
 
 A simple hook that will overlay a screensaver of images from an [are.na](https://www.are.na/) 🌐 channel when users of your site become idle.
 
