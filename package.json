@@ -1,0 +1,35 @@
+{
+  "name": "use-arena-screensaver",
+  "version": "1.0.0",
+  "description": "Use an are.na channel to create a screensaver when your website becomes idle.",
+  "main": "index.ts",
+  "scripts": {
+    "build": "rollup src/index.js --file dist/index.js --format cjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "deploy": "npm run build && npm publish"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.2",
+    "@types/node": "^17.0.33",
+    "@types/react": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "prettier": "2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-idle-timer": "^5.1.3"
+  }
+}
