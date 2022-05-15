@@ -47,7 +47,7 @@ export const useArenaScreensaver = ({
   const onIdle = useCallback(async () => {
     if (imagesRef.current === null) {
       const channelImages = await getChannel(arenaSlug);
-      if (channelImages) {
+      if (channelImages !== null) {
         imagesRef.current = channelImages;
       }
     }
@@ -77,3 +77,5 @@ export const useArenaScreensaver = ({
 
   return useIdleTimer({ onIdle, onActive, timeout });
 };
+
+module.exports = {};
