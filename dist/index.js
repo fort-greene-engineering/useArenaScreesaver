@@ -1,11 +1,11 @@
 Object.defineProperty(exports,"__esModule",{value:!0});var reactIdleTimer=require("react-idle-timer"),react=require("react");function __awaiter(e,o,c,s){return new(c=c||Promise)(function(t,a){function n(e){try{i(s.next(e))}catch(e){a(e)}}function r(e){try{i(s.throw(e))}catch(e){a(e)}}function i(e){var a;e.done?t(e.value):((a=e.value)instanceof c?a:new c(function(e){e(a)})).then(n,r)}i((s=s.apply(e,o||[])).next())})}const MARGIN=300,imageToHtml=(e,a,t)=>{const n=document.createElement("img");return n.src=e.src,n.alt=e.alt,n.classList.add("screensaver-image"),n.style.left=Math.random()*window.innerWidth+"px",n.style.top=Math.random()*(window.innerHeight-MARGIN)+"px",n.style.width=300*Math.random()+200+"px",setTimeout(function(){n.classList.add("animated"),n.classList.add("fade-in-up")},a*t),n},imagesToHtml=(e,t)=>e.map((e,a)=>imageToHtml(e,a,t)),ANIMATION_DURATION=1,generateScreensaverHtml=(e,a)=>{const t=imagesToHtml(e,a),n=document.createElement("div");return n.id="arena-screensaver-background",n.classList.add("screensaver-background"),n.classList.add("animated"),n.classList.add("fade-in"),t.forEach(e=>n.appendChild(e)),n},generateStylesHtml=e=>{const a=document.createElement("style");e=`
       .screensaver-image {
           position: fixed;
-          z-index: 2147483647; // maximum z-index to ensure screensaver is always on top
           opacity: 0;
           border-radius: 10px;
       }
       .screensaver-background {
+          z-index: 2147483647; // maximum z-index to ensure screensaver is always on top
           position: fixed; 
           left: 0; 
           top: 0; 
