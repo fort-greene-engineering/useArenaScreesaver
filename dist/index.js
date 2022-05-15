@@ -1,14 +1,5 @@
 'use strict';
 
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_idle_timer_1 = require("react-idle-timer");
 const react_1 = require("react");
@@ -54,7 +45,7 @@ const imageToHtml = (image, index, timeBetween) => {
     img.style.left = `${Math.random() * window.innerWidth}px`;
     img.style.top = `${Math.random() * (window.innerHeight - MARGIN)}px`;
     img.style.width = `${Math.random() * 300 + 200}px`;
-    setTimeout(() => {
+    setTimeout(function () {
         img.classList.add("animated");
         img.classList.add("fade-in-up");
     }, index * timeBetween);
@@ -167,7 +158,7 @@ const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBetween =
     const screensaverRef = (0, react_1.useRef)(null);
     const imagesRef = (0, react_1.useRef)(null);
     const addScreensaver = (0, react_1.useCallback)(() => {
-        setTimeout(() => {
+        setTimeout(function () {
             if (imagesRef.current !== null) {
                 if (styleRef.current === null) {
                     const style = generateStylesHtml();
@@ -196,7 +187,7 @@ const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBetween =
             screensaverRef.current.classList.remove("fade-in");
             screensaverRef.current.classList.add("fade-out");
         }
-        setTimeout(() => {
+        setTimeout(function () {
             if (screensaverRef.current) {
                 screensaverRef.current.remove();
                 screensaverRef.current = null;

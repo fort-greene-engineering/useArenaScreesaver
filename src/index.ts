@@ -52,7 +52,7 @@ const imageToHtml = (image: Image, index: number, timeBetween: number) => {
   img.style.left = `${Math.random() * window.innerWidth}px`;
   img.style.top = `${Math.random() * (window.innerHeight - MARGIN)}px`;
   img.style.width = `${Math.random() * 300 + 200}px`;
-  setTimeout(() => {
+  setTimeout(function () {
     img.classList.add("animated");
     img.classList.add("fade-in-up");
   }, index * timeBetween);
@@ -183,7 +183,7 @@ const useArenaScreensaver = ({
   const imagesRef = useRef<Image[] | null>(null);
 
   const addScreensaver = useCallback(() => {
-    setTimeout(() => {
+    setTimeout(function () {
       if (imagesRef.current !== null) {
         if (styleRef.current === null) {
           const style = generateStylesHtml();
@@ -217,7 +217,7 @@ const useArenaScreensaver = ({
       screensaverRef.current.classList.remove("fade-in");
       screensaverRef.current.classList.add("fade-out");
     }
-    setTimeout(() => {
+    setTimeout(function () {
       if (screensaverRef.current) {
         screensaverRef.current.remove();
         screensaverRef.current = null;
