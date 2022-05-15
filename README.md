@@ -23,7 +23,7 @@ import useArenaScreensaver from 'use-arena-screensaver'
 | `timeout`  | number  | Time a user needs to be idle on site before screensaver becomes active  | `1000 * 60 * 2` |
 | `timeBetween`  | number  | Time between images appearing once screensaver is active  | `500` |
 | `arenaSlug`  | string  | Slug of the are.na channel you want the screensaver to pull from | `things-i-saved-to-my-camera-roll` |
-
+| `backgroundOpacity`  | number  | how dark the background tint should be | `0.4` |
 ### Example
 ```jsx
 import useArenaScreensaver from 'use-arena-screensaver';
