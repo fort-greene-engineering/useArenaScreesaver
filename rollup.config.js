@@ -26,6 +26,6 @@ export default {
       strict: false,
     },
   ],
-  plugins: [typescript(), uglify()],
+  plugins: [typescript({ sourceMap: false }), uglify()],
   external: ["react", "react-dom"],
 };
