@@ -1,6 +1,6 @@
 {
   "name": "@ftge/use-arena-screensaver",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Use an are.na channel to create a screensaver when your website becomes idle.",
   "main": "dist/index.js",
   "engines": {
