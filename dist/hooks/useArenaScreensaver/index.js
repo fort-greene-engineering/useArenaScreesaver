@@ -63,5 +63,5 @@ export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBe
     }), [removeScreensaver]);
     return useIdleTimer({ onIdle, onActive, timeout });
 };
-module.exports = {};
+module.exports = { useArenaScreensaver };
 //# sourceMappingURL=index.js.map

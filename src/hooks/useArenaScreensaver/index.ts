@@ -78,4 +78,4 @@ export const useArenaScreensaver = ({
   return useIdleTimer({ onIdle, onActive, timeout });
 };
 
-module.exports = {};
+module.exports = { useArenaScreensaver };

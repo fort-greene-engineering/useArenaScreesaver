@@ -1,1 +1,1 @@
-export { useArenaScreensaver } from "./hooks/useArenaScreensaver/";
+export { useArenaScreensaver } from "./hooks/useArenaScreensaver";
