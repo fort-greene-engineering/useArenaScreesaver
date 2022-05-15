@@ -37,7 +37,6 @@ const getChannel = async (slug: string) => {
     const { contents } = data;
 
     const images = contents.filter((content: any) => content.class === "Image");
-    console.log(images);
     return formatImageArray(images);
   } catch (error) {
     // Fail silently
@@ -80,7 +79,9 @@ const generateScreensaverHtml = (images: Image[], timeBetween: number) => {
 };
 
 const generateStylesHtml = () => {
-  const style = `<style>    
+  const style = document.createElement("style");
+
+  const css = `
     .screensaver-image {
         position: fixed;
         opacity: 0;
@@ -160,36 +161,45 @@ const generateStylesHtml = () => {
         animation-name: fade-out;
         -webkit-animation-name: fade-out;
     }
-    </style>`;
-
-  document.head.insertAdjacentHTML("beforeend", style);
+    `;
+  style.innerText = css;
+  return style;
 };
 
 const useArenaScreensaver = ({
   arenaSlug,
-  timeout = 1000 * 60 * 2, // 2 minutes
+  timeout = 1000 * 60 * 2,
   timeBetween = 2000,
 }: {
   arenaSlug: string;
-  timeout: number;
-  timeBetween: number;
+  timeout?: number;
+  timeBetween?: number;
 }) => {
   if (!arenaSlug) {
     throw new Error("arenaSlug is required");
   }
+  const styleRef = useRef<HTMLStyleElement | null>(null);
   const screensaverRef = useRef<HTMLDivElement | null>(null);
   const imagesRef = useRef<Image[] | null>(null);
 
-  const addScreensaver = useCallback(async () => {
-    if (imagesRef.current !== null && screensaverRef.current !== null) {
-      generateStylesHtml();
-      const screensaver = generateScreensaverHtml(
-        imagesRef.current,
-        timeBetween
-      );
-      screensaverRef.current = screensaver;
-      document.body.appendChild(screensaver);
-    }
+  const addScreensaver = useCallback(() => {
+    setTimeout(() => {
+      if (imagesRef.current !== null) {
+        if (styleRef.current === null) {
+          const style = generateStylesHtml();
+          document.head.appendChild(style);
+          styleRef.current = style;
+        }
+        if (screensaverRef.current === null) {
+          const screensaver = generateScreensaverHtml(
+            imagesRef.current,
+            timeBetween
+          );
+          screensaverRef.current = screensaver;
+          document.body.appendChild(screensaver);
+        }
+      }
+    }, ANIMATION_DURATION * 1000);
   }, [screensaverRef, imagesRef, timeBetween]);
 
   const onIdle = useCallback(async () => {
@@ -199,18 +209,22 @@ const useArenaScreensaver = ({
         imagesRef.current = channelImages;
       }
     }
-    await addScreensaver();
-  }, [imagesRef, addScreensaver]);
+    addScreensaver();
+  }, [imagesRef, addScreensaver, arenaSlug]);
 
   const removeScreensaver = useCallback(() => {
     if (screensaverRef.current !== null) {
       screensaverRef.current.classList.remove("fade-in");
       screensaverRef.current.classList.add("fade-out");
     }
-
     setTimeout(() => {
       if (screensaverRef.current) {
         screensaverRef.current.remove();
+        screensaverRef.current = null;
+      }
+      if (styleRef.current) {
+        styleRef.current.remove();
+        styleRef.current = null;
       }
     }, ANIMATION_DURATION * 1000);
   }, [screensaverRef]);
