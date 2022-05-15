@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { useIdleTimer } from "react-idle-timer";
 import { useRef, useCallback } from "react";
 import { ANIMATION_DURATION, generateScreensaverHtml, generateStylesHtml, getChannel, } from "../../helpers";
-export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBetween = 2000, }) => {
+export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBetween = 2000, backgroundOpacity = 0.4, }) => {
     if (!arenaSlug) {
         throw new Error("arenaSlug is required");
     }
@@ -21,7 +21,7 @@ export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBe
         setTimeout(function () {
             if (imagesRef.current !== null) {
                 if (styleRef.current === null) {
-                    const style = generateStylesHtml();
+                    const style = generateStylesHtml(backgroundOpacity);
                     document.head.appendChild(style);
                     styleRef.current = style;
                 }

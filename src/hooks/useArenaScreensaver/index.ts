@@ -12,10 +12,12 @@ export const useArenaScreensaver = ({
   arenaSlug,
   timeout = 1000 * 60 * 2,
   timeBetween = 2000,
+  backgroundOpacity = 0.4,
 }: {
   arenaSlug: string;
   timeout?: number;
   timeBetween?: number;
+  backgroundOpacity?: number;
 }): IIdleTimer => {
   if (!arenaSlug) {
     throw new Error("arenaSlug is required");
@@ -28,7 +30,7 @@ export const useArenaScreensaver = ({
     setTimeout(function () {
       if (imagesRef.current !== null) {
         if (styleRef.current === null) {
-          const style = generateStylesHtml();
+          const style = generateStylesHtml(backgroundOpacity);
           document.head.appendChild(style);
           styleRef.current = style;
         }

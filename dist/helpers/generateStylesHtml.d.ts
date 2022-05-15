@@ -1,1 +1,1 @@
-export declare const generateStylesHtml: () => HTMLStyleElement;
+export declare const generateStylesHtml: (backgroundOpacity: number) => HTMLStyleElement;

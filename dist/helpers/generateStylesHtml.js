@@ -1,9 +1,10 @@
 import { ANIMATION_DURATION } from "./generateScreensaverHtml";
-export const generateStylesHtml = () => {
+export const generateStylesHtml = (backgroundOpacity) => {
     const style = document.createElement("style");
     const css = `
       .screensaver-image {
           position: fixed;
+          z-index: 2147483647; // maximum z-index to ensure screensaver is always on top
           opacity: 0;
           border-radius: 10px;
       }
@@ -13,7 +14,7 @@ export const generateStylesHtml = () => {
           top: 0; 
           width: 100%; 
           height: 100%;
-          background-color: rgba(0,0,0,0.4);
+          background-color: rgba(0,0,0,${backgroundOpacity});
       }
       @keyframes fade-in {
           from {}
