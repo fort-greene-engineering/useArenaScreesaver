@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getChannel = exports.generateStylesHtml = exports.ANIMATION_DURATION = exports.generateScreensaverHtml = void 0;
+var generateScreensaverHtml_1 = require("./generateScreensaverHtml");
+Object.defineProperty(exports, "generateScreensaverHtml", { enumerable: true, get: function () { return generateScreensaverHtml_1.generateScreensaverHtml; } });
+Object.defineProperty(exports, "ANIMATION_DURATION", { enumerable: true, get: function () { return generateScreensaverHtml_1.ANIMATION_DURATION; } });
+var generateStylesHtml_1 = require("./generateStylesHtml");
+Object.defineProperty(exports, "generateStylesHtml", { enumerable: true, get: function () { return generateStylesHtml_1.generateStylesHtml; } });
+var getChannel_1 = require("./getChannel");
+Object.defineProperty(exports, "getChannel", { enumerable: true, get: function () { return getChannel_1.getChannel; } });

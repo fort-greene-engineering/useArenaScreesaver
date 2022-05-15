@@ -1,5 +1,8 @@
 // rollup.config.js
 import typescript from "@rollup/plugin-typescript";
+import { uglify } from "rollup-plugin-uglify";
+
+import pkg from "./package.json";
 
 export default {
   onwarn: function (warning) {
@@ -14,9 +17,15 @@ export default {
     console.warn(warning.message);
   },
   input: "src/index.ts",
-  output: {
-    dir: "dist",
-    format: "cjs",
-  },
-  plugins: [typescript()],
+  output: [
+    {
+      file: pkg.main,
+      format: "cjs",
+      exports: "named",
+      sourcemap: true,
+      strict: false,
+    },
+  ],
+  plugins: [typescript(), uglify()],
+  external: ["react", "react-dom"],
 };
