@@ -1,6 +1,7 @@
 // rollup.config.js
 import typescript from "@rollup/plugin-typescript";
 import { uglify } from "rollup-plugin-uglify";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 import pkg from "./package.json";
 
@@ -26,6 +27,6 @@ export default {
       strict: false,
     },
   ],
-  plugins: [typescript({ sourceMap: false }), uglify()],
+  plugins: [peerDepsExternal(), typescript({ sourceMap: false }), uglify()],
   external: ["react", "react-dom"],
 };

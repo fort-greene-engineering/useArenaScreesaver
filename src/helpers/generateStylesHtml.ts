@@ -4,12 +4,12 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
   const style = document.createElement("style");
 
   const css = `
-      .screensaver-image {
+      .arena-screensaver-image {
           position: fixed;
           opacity: 0;
           border-radius: 10px;
       }
-      .screensaver-background {
+      .arena-screensaver-background {
           pointer-events: none;
           z-index: 2147483647; /* max */
           position: fixed; 
@@ -19,31 +19,31 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
           height: 100%;
           background-color: rgba(0,0,0,${backgroundOpacity});
       }
-      @keyframes fade-in {
+      @keyframes arena-screensaver-fade-in {
           from {}
           to {
               opacity: 1;
           }
       }
-      @-webkit-keyframes fade-in {
+      @-webkit-keyframes arena-screensaver-fade-in {
           from {}
           to {
               opacity: 1;
           }
       }
-      @keyframes fade-out {
+      @keyframes arena-screensaver-fade-out {
           from {}
           to {
               opacity: 0;
           }
       }
-      @-webkit-keyframes fade-out {
+      @-webkit-keyframes arena-screensaver-fade-out {
           from {}
           to {
               opacity: 0;
           }
       }
-      @keyframes fade-in-up {
+      @keyframes arena-screensaver-fade-in-up {
           from {
               transform: translate3d(0,40px,0);
               opacity: 0;
@@ -53,7 +53,7 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
               opacity: 1
           }
       }
-      @-webkit-keyframes fade-in-up {
+      @-webkit-keyframes arena-screensaver-fade-in-up {
           from {
               transform: translate3d(0,40px,0);
               opacity: 0;
@@ -63,27 +63,27 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
               opacity: 1;
           }
       }
-      .animated {
+      .arena-screensaver-animated {
           animation-duration: ${ANIMATION_DURATION}s;
           animation-fill-mode: both;
           -webkit-animation-duration: 1s;
           -webkit-animation-fill-mode: both
       }
       
-      .fade-in-up {
+      .arena-screensaver-fade-in-up {
           opacity: 0;
-          animation-name: fade-in-up;
-          -webkit-animation-name: fade-in-up;
+          animation-name: arena-screensaver-fade-in-up;
+          -webkit-animation-name: arena-screensaver-fade-in-up;
       }
-      .fade-in {
+      .arena-screensaver-fade-in {
           opacity: 0;
-          animation-name: fade-in;
-          -webkit-animation-name: fade-in;
+          animation-name: arena-screensaver-fade-in;
+          -webkit-animation-name: arena-screensaver-fade-in;
       }
-      .fade-out {
+      .arena-screensaver-fade-out {
           opacity: 1;
-          animation-name: fade-out;
-          -webkit-animation-name: fade-out;
+          animation-name: arena-screensaver-fade-out;
+          -webkit-animation-name: arena-screensaver-fade-out;
       }
       `;
   style.innerText = css;

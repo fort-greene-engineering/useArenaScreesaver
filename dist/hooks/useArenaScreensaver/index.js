@@ -44,8 +44,8 @@ export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBe
     }), [imagesRef, addScreensaver, arenaSlug]);
     const removeScreensaver = useCallback(() => {
         if (screensaverRef.current !== null) {
-            screensaverRef.current.classList.remove("fade-in");
-            screensaverRef.current.classList.add("fade-out");
+            screensaverRef.current.classList.remove("arena-screensaver-fade-in");
+            screensaverRef.current.classList.add("arena-screensaver-fade-out");
         }
         setTimeout(function () {
             if (screensaverRef.current) {
@@ -63,5 +63,6 @@ export const useArenaScreensaver = ({ arenaSlug, timeout = 1000 * 60 * 2, timeBe
     }), [removeScreensaver]);
     return useIdleTimer({ onIdle, onActive, timeout });
 };
-module.exports = { useArenaScreensaver };
+export default useArenaScreensaver;
+//module.exports = { useArenaScreensaver };
 //# sourceMappingURL=index.js.map

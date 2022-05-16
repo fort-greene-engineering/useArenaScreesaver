@@ -5,3 +5,4 @@ export declare const useArenaScreensaver: ({ arenaSlug, timeout, timeBetween, ba
     timeBetween?: number | undefined;
     backgroundOpacity?: number | undefined;
 }) => IIdleTimer;
+export default useArenaScreensaver;

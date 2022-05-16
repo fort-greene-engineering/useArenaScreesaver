@@ -10,9 +10,9 @@ export const generateScreensaverHtml = (
   const htmlImages = imagesToHtml(images, timeBetween);
   const div = document.createElement("div");
   div.id = "arena-screensaver-background";
-  div.classList.add("screensaver-background");
-  div.classList.add("animated");
-  div.classList.add("fade-in");
+  div.classList.add("arena-screensaver-background");
+  div.classList.add("arena-screensaver-animated");
+  div.classList.add("arena-screensaver-fade-in");
 
   htmlImages.forEach((image) => div.appendChild(image));
 
