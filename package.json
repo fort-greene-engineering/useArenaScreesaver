@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "repository": "https://github.com/fort-greene-engineering/useArenaScreesaver",
   "publishConfig": {
-    "@ftge:registry": "https://npm.pkg.github.com"
+    "@fort-greene-engineering:registry": "https://npm.pkg.github.com"
   },
   "engines": {
     "node": ">=8",
