@@ -7,7 +7,7 @@ export const imageToHtml = (image, index, timeBetween) => {
     img.classList.add("screensaver-image");
     img.style.left = `${Math.random() * window.innerWidth}px`;
     img.style.top = `${Math.random() * (window.innerHeight - IMAGE_MAX_WIDTH)}px`;
-    img.style.width = `${Math.floor(Math.random() * IMAGE_MAX_WIDTH - IMAGE_MIN_WIDTH) +
+    img.style.width = `${Math.floor(Math.random() * (IMAGE_MAX_WIDTH - IMAGE_MIN_WIDTH)) +
         IMAGE_MIN_WIDTH}px`;
     setTimeout(function () {
         img.classList.add("animated");
