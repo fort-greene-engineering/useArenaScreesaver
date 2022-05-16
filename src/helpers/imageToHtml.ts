@@ -14,7 +14,7 @@ export const imageToHtml = (
   img.style.left = `${Math.random() * window.innerWidth}px`;
   img.style.top = `${Math.random() * (window.innerHeight - IMAGE_MAX_WIDTH)}px`;
   img.style.width = `${
-    Math.floor(Math.random() * IMAGE_MAX_WIDTH - IMAGE_MIN_WIDTH) +
+    Math.floor(Math.random() * (IMAGE_MAX_WIDTH - IMAGE_MIN_WIDTH)) +
     IMAGE_MIN_WIDTH
   }px`;
   setTimeout(function () {
