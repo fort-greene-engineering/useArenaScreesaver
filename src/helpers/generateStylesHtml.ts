@@ -85,6 +85,15 @@ export const generateStylesHtml = (backgroundOpacity: number) => {
           animation-name: arena-screensaver-fade-out;
           -webkit-animation-name: arena-screensaver-fade-out;
       }
+      @media screen and (max-width: 768px) {
+        .arena-screensaver-background {
+            display:none;
+        }
+        .arena-screensaver-image {
+            display:none;
+        }
+ 
+      }
       `;
   style.innerText = css;
   return style;

@@ -1,5 +1,5 @@
 {
-  "name": "@ftge/use-arena-screensaver",
+  "name": "@fort-greene-engineering/use-arena-screensaver",
   "version": "1.3.7",
   "description": "Use an are.na channel to create a screensaver when your website becomes idle.",
   "main": "dist/index.js",
